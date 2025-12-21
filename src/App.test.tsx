@@ -12,4 +12,9 @@ describe('App', () => {
     render(<App />)
     expect(screen.getByTestId('marvel-logo')).toBeInTheDocument()
   })
+
+  it('should render search bar', () => {
+    render(<App />)
+    expect(screen.getByPlaceholderText('SEARCH A CHARACTER...')).toBeInTheDocument()
+  })
 })
