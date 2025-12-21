@@ -1,8 +1,10 @@
 import '@testing-library/jest-dom'
 import { cleanup } from '@testing-library/react'
-import { afterEach } from 'vitest'
+import { afterEach, vi } from 'vitest'
 
-// Limpia el DOM después de cada test
 afterEach(() => {
   cleanup()
 })
+
+// Mock global fetch
+global.fetch = vi.fn()
