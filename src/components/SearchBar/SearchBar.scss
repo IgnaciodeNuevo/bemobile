@@ -1,0 +1,26 @@
+.search-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem;
+  border-bottom: 1px solid #000;
+  margin: 0 1rem;
+
+  &__icon {
+    color: #000;
+    font-size: 1rem;
+  }
+
+  &__input {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+
+    &::placeholder {
+      color: #999;
+    }
+  }
+}
