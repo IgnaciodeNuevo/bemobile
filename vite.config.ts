@@ -17,6 +17,15 @@ export default defineConfig({
       '@styles': path.resolve(__dirname, './src/styles'),
     },
   },
+  server: {
+    proxy: {
+      '/api': {
+        target: 'https://comicvine.gamespot.com',
+        changeOrigin: true,
+        secure: false,
+      },
+    },
+  },
   test: {
     globals: true,
     environment: 'jsdom',
