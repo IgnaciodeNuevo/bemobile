@@ -23,6 +23,9 @@ export default defineConfig({
         target: 'https://comicvine.gamespot.com',
         changeOrigin: true,
         secure: false,
+        headers: {
+          'User-Agent': 'Mozilla/5.0 (compatible; BeMobile/1.0)',
+        },
       },
     },
   },
