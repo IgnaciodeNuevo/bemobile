@@ -1,4 +1,4 @@
-import { ApiResponse, Character, Comic } from '@/types'
+import { ApiResponse, Character, Comic } from '@/types/index'
 
 const API_URL = '/api'
 const API_KEY = import.meta.env.VITE_API_KEY
@@ -10,7 +10,8 @@ async function fetchApi<T>(endpoint: string, params: Record<string, string> = {}
     ...params,
   })
 
-  const response = await fetch(`${API_URL}${endpoint}?${searchParams}`)
+  const url = `${API_URL}${endpoint}/?${searchParams}`
+  const response = await fetch(url)
 
   if (!response.ok) {
     throw new Error(`API Error: ${response.status}`)
