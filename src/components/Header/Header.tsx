@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { useFavorites } from '@/context/index'
 import { Logo } from '@/components/Logo/index'
+import { Favorite } from '@/components/Favorite/index'
 import './Header.scss'
 
 interface HeaderProps {
@@ -20,7 +21,7 @@ export function Header({ onFavoritesClick }: HeaderProps) {
         onClick={onFavoritesClick}
         aria-label={`Favoritos: ${favorites.length} personajes`}
       >
-        <span className="header__favorites-icon">♥</span>
+        <Favorite type="fav" />
         <span className="header__favorites-count">{favorites.length}</span>
       </button>
     </header>
