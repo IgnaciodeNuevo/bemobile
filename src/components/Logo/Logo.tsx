@@ -7,7 +7,7 @@ export const Logo = () => {
       data-testid="marvel-logo"
       role="img"
       aria-label="marvel-logo"
-      fill="none"
+      fill="#ec1d24"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 130 52"
     >
