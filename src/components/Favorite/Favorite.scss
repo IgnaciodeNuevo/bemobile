@@ -1,0 +1,17 @@
+.favorite {
+  width: 24px;
+  height: 22px;
+
+  &--red {
+    fill: #e62429;
+  }
+
+  &--ghost {
+    fill: none;
+    stroke: #e62429;
+  }
+
+  &--white {
+    fill: white;
+  }
+}
