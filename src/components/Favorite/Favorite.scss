@@ -3,15 +3,15 @@
   height: 22px;
 
   &--red {
-    fill: #e62429;
+    fill: var(--color-primary);
   }
 
   &--ghost {
     fill: none;
-    stroke: #e62429;
+    stroke: var(--color-primary);
   }
 
   &--white {
-    fill: white;
+    fill: var(--color-white);
   }
 }

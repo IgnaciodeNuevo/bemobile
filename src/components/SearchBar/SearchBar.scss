@@ -1,26 +1,25 @@
 .search-bar {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 1rem;
-  border-bottom: 1px solid #000;
-  margin: 0 1rem;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-md);
+  border-bottom: 1px solid var(--color-black);
 
   &__icon {
-    color: #000;
-    font-size: 1rem;
+    color: var(--color-black);
+    font-size: var(--font-size-md);
   }
 
   &__input {
     flex: 1;
     border: none;
     outline: none;
-    font-size: 0.875rem;
+    font-size: var(--font-size-sm);
     text-transform: uppercase;
     letter-spacing: 0.05em;
 
     &::placeholder {
-      color: #999;
+      color: var(--color-gray);
     }
   }
 }
