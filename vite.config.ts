@@ -37,13 +37,7 @@ export default defineConfig({
     coverage: {
       provider: 'v8',
       reporter: ['text', 'json', 'html'],
-      exclude: [
-        'node_modules/',
-        'src/tests/setup.ts',
-        '**/*.d.ts',
-        '**/*.config.*',
-        '**/main.tsx',
-      ],
+      exclude: ['node_modules/', 'src/tests/setup.ts', '**/*.d.ts', '**/*.config.*', '**/main.tsx'],
     },
   },
 })
