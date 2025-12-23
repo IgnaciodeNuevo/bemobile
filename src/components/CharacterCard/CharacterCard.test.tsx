@@ -73,17 +73,23 @@ describe('CharacterCard', () => {
     const button = screen.getByRole('button', { name: /añadir spider-man a favoritos/i })
     await user.click(button)
 
-    expect(screen.getByRole('button', { name: /quitar spider-man de favoritos/i })).toBeInTheDocument()
+    expect(
+      screen.getByRole('button', { name: /quitar spider-man de favoritos/i })
+    ).toBeInTheDocument()
 
     await user.click(screen.getByRole('button', { name: /quitar spider-man de favoritos/i }))
 
-    expect(screen.getByRole('button', { name: /añadir spider-man a favoritos/i })).toBeInTheDocument()
+    expect(
+      screen.getByRole('button', { name: /añadir spider-man a favoritos/i })
+    ).toBeInTheDocument()
   })
 
   it('should have accessible label for add favorite button', () => {
     renderCard()
 
-    expect(screen.getByRole('button', { name: /añadir spider-man a favoritos/i })).toBeInTheDocument()
+    expect(
+      screen.getByRole('button', { name: /añadir spider-man a favoritos/i })
+    ).toBeInTheDocument()
   })
 
   it('should have accessible label for remove favorite button', async () => {
@@ -91,7 +97,9 @@ describe('CharacterCard', () => {
 
     await user.click(screen.getByRole('button', { name: /añadir spider-man a favoritos/i }))
 
-    expect(screen.getByRole('button', { name: /quitar spider-man de favoritos/i })).toBeInTheDocument()
+    expect(
+      screen.getByRole('button', { name: /quitar spider-man de favoritos/i })
+    ).toBeInTheDocument()
   })
 
   it('should not navigate when clicking favorite button', async () => {
@@ -110,7 +118,7 @@ describe('CharacterCard', () => {
 
     const stored = localStorage.getItem('bemobile_favorites')
     expect(stored).not.toBeNull()
-    
+
     const favorites = JSON.parse(stored!)
     expect(favorites).toHaveLength(1)
     expect(favorites[0].id).toBe(1)

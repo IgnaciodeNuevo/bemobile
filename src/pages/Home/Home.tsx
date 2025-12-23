@@ -28,7 +28,7 @@ export function Home({ showFavorites = false }: HomeProps) {
       setError(null)
       const response = await getCharacters(50)
       setCharacters(response.results)
-    } catch (err) {
+    } catch {
       setError('Error al cargar los personajes')
     } finally {
       setLoading(false)
@@ -46,7 +46,7 @@ export function Home({ showFavorites = false }: HomeProps) {
       setError(null)
       const response = await searchCharacters(query)
       setCharacters(response.results)
-    } catch (err) {
+    } catch {
       setError('Error al buscar personajes')
     } finally {
       setLoading(false)
@@ -67,17 +67,21 @@ export function Home({ showFavorites = false }: HomeProps) {
           {showFavorites ? 'FAVORITES' : `${resultsCount} RESULTS`}
         </p>
         {loading && !showFavorites && (
-          <p className="loading" role="status">Cargando...</p>
+          <p className="loading" role="status">
+            Cargando...
+          </p>
         )}
         {error && (
-          <p className="error" role="alert">{error}</p>
+          <p className="error" role="alert">
+            {error}
+          </p>
         )}
         {(!loading || showFavorites) && !error && (
-          <section 
-            className="characters-grid" 
+          <section
+            className="characters-grid"
             aria-label={showFavorites ? 'Personajes favoritos' : 'Resultados de búsqueda'}
           >
-            {displayedCharacters.map((character) => (
+            {displayedCharacters.map(character => (
               <CharacterCard key={character.id} character={character} />
             ))}
           </section>

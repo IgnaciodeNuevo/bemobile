@@ -24,24 +24,24 @@ export function CharacterCard({ character }: CharacterCardProps) {
 
   return (
     <article className="character-card">
-      <Link 
-        to={`/character/${character.id}`} 
+      <Link
+        to={`/character/${character.id}`}
         className="character-card__link"
         aria-label={`Ver detalles de ${character.name}`}
       >
         <div className="character-card__image">
-          <img 
-            src={character.image.medium_url} 
-            alt=""
-            aria-hidden="true"
-          />
+          <img src={character.image.medium_url} alt="" aria-hidden="true" />
         </div>
         <div className="character-card__info">
           <h2 className="character-card__name">{character.name}</h2>
           <button
             className="character-card__favorite"
             onClick={handleFavoriteClick}
-            aria-label={favorite ? `Quitar ${character.name} de favoritos` : `Añadir ${character.name} a favoritos`}
+            aria-label={
+              favorite
+                ? `Quitar ${character.name} de favoritos`
+                : `Añadir ${character.name} a favoritos`
+            }
             aria-pressed={favorite}
           >
             <Favorite type={favorite ? 'fav' : 'nofav'} />

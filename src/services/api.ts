@@ -38,7 +38,10 @@ export async function getCharacterById(id: number): Promise<ApiResponse<Characte
   return fetchApi<ApiResponse<Character>>(`/character/4005-${id}`)
 }
 
-export async function getCharacterComics(characterId: number, limit = 20): Promise<ApiResponse<Comic[]>> {
+export async function getCharacterComics(
+  characterId: number,
+  limit = 20
+): Promise<ApiResponse<Comic[]>> {
   return fetchApi<ApiResponse<Comic[]>>('/issues', {
     limit: String(limit),
     filter: `character:${characterId}`,

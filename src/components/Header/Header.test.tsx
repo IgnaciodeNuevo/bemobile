@@ -34,9 +34,7 @@ describe('Header', () => {
   it('should have accessible label for favorites', () => {
     renderHeader()
 
-    expect(
-      screen.getByRole('button', { name: /ver favoritos/i })
-    ).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: /ver favoritos/i })).toBeInTheDocument()
   })
 
   it('should call onFavoritesClick when favorites button is clicked', async () => {

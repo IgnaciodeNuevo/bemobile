@@ -17,7 +17,9 @@ export function SearchBar({ onSearch, placeholder = 'SEARCH A CHARACTER...' }: S
 
   return (
     <div className="search-bar" role="search">
-      <span className="search-bar__icon" aria-hidden="true">🔍</span>
+      <span className="search-bar__icon" aria-hidden="true">
+        🔍
+      </span>
       <label htmlFor="character-search" className="visually-hidden">
         Buscar personaje
       </label>

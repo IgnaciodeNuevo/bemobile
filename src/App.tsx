@@ -21,10 +21,7 @@ function AppContent() {
 
   return (
     <div className="app">
-      <Header 
-        onFavoritesClick={handleFavoritesClick} 
-        onLogoClick={handleLogoClick}
-      />
+      <Header onFavoritesClick={handleFavoritesClick} onLogoClick={handleLogoClick} />
       <Routes>
         <Route path="/" element={<Home showFavorites={showFavorites} />} />
         <Route path="/character/:id" element={<CharacterDetail />} />

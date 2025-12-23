@@ -121,7 +121,9 @@ describe('CharacterDetail', () => {
     await user.click(button)
 
     await waitFor(() => {
-      expect(screen.getByRole('button', { name: /quitar spider-man de favoritos/i })).toBeInTheDocument()
+      expect(
+        screen.getByRole('button', { name: /quitar spider-man de favoritos/i })
+      ).toBeInTheDocument()
     })
   })
 
@@ -129,7 +131,9 @@ describe('CharacterDetail', () => {
     renderCharacterDetail()
 
     await waitFor(() => {
-      expect(screen.getByRole('button', { name: /añadir spider-man a favoritos/i })).toBeInTheDocument()
+      expect(
+        screen.getByRole('button', { name: /añadir spider-man a favoritos/i })
+      ).toBeInTheDocument()
     })
   })
 })

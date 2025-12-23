@@ -45,9 +45,7 @@ describe('API Service', () => {
       const result = await getCharacters()
 
       expect(fetch).toHaveBeenCalledTimes(1)
-      expect(fetch).toHaveBeenCalledWith(
-        expect.stringContaining('/api/characters/?')
-      )
+      expect(fetch).toHaveBeenCalledWith(expect.stringContaining('/api/characters/?'))
       expect(result.results).toHaveLength(1)
       expect(result.results[0].name).toBe('Spider-Man')
     })
@@ -61,12 +59,8 @@ describe('API Service', () => {
 
       await getCharacters(10, 20)
 
-      expect(fetch).toHaveBeenCalledWith(
-        expect.stringMatching(/limit=10/)
-      )
-      expect(fetch).toHaveBeenCalledWith(
-        expect.stringMatching(/offset=20/)
-      )
+      expect(fetch).toHaveBeenCalledWith(expect.stringMatching(/limit=10/))
+      expect(fetch).toHaveBeenCalledWith(expect.stringMatching(/offset=20/))
     })
 
     it('should throw error when response is not ok', async () => {
@@ -89,15 +83,9 @@ describe('API Service', () => {
 
       const result = await searchCharacters('Spider')
 
-      expect(fetch).toHaveBeenCalledWith(
-        expect.stringContaining('/api/search/?')
-      )
-      expect(fetch).toHaveBeenCalledWith(
-        expect.stringMatching(/query=Spider/)
-      )
-      expect(fetch).toHaveBeenCalledWith(
-        expect.stringMatching(/resources=character/)
-      )
+      expect(fetch).toHaveBeenCalledWith(expect.stringContaining('/api/search/?'))
+      expect(fetch).toHaveBeenCalledWith(expect.stringMatching(/query=Spider/))
+      expect(fetch).toHaveBeenCalledWith(expect.stringMatching(/resources=character/))
       expect(result.results[0].name).toBe('Spider-Man')
     })
   })
@@ -112,9 +100,7 @@ describe('API Service', () => {
 
       const result = await getCharacterById(1)
 
-      expect(fetch).toHaveBeenCalledWith(
-        expect.stringContaining('/api/character/4005-1/?')
-      )
+      expect(fetch).toHaveBeenCalledWith(expect.stringContaining('/api/character/4005-1/?'))
       expect(result.results.name).toBe('Spider-Man')
     })
   })
@@ -129,15 +115,9 @@ describe('API Service', () => {
 
       const result = await getCharacterComics(1)
 
-      expect(fetch).toHaveBeenCalledWith(
-        expect.stringContaining('/api/issues/?')
-      )
-      expect(fetch).toHaveBeenCalledWith(
-        expect.stringMatching(/filter=character%3A1/)
-      )
-      expect(fetch).toHaveBeenCalledWith(
-        expect.stringMatching(/limit=20/)
-      )
+      expect(fetch).toHaveBeenCalledWith(expect.stringContaining('/api/issues/?'))
+      expect(fetch).toHaveBeenCalledWith(expect.stringMatching(/filter=character%3A1/))
+      expect(fetch).toHaveBeenCalledWith(expect.stringMatching(/limit=20/))
       expect(result.results[0].name).toBe('Amazing Spider-Man')
     })
 
@@ -150,9 +130,7 @@ describe('API Service', () => {
 
       await getCharacterComics(1, 10)
 
-      expect(fetch).toHaveBeenCalledWith(
-        expect.stringMatching(/limit=10/)
-      )
+      expect(fetch).toHaveBeenCalledWith(expect.stringMatching(/limit=10/))
     })
   })
 })

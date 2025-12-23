@@ -1,5 +1,5 @@
 .favorite {
-  width: 12px;
+  width: var(--favorite-icon-sm);
   height: 11px;
 
   &--red {
@@ -8,7 +8,7 @@
 
   &--ghost {
     fill: none;
-    
+
     path {
       fill: var(--color-primary);
     }

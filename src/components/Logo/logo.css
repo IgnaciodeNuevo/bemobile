@@ -1,4 +1,4 @@
 .logo {
-  height: 40px;
+  height: var(--logo-height);
   width: auto;
 }

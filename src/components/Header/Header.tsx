@@ -25,7 +25,9 @@ export function Header({ onFavoritesClick, onLogoClick }: HeaderProps) {
         aria-label={`Ver favoritos. ${favorites.length} personajes guardados`}
       >
         <Favorite type="fav" />
-        <span className="header__favorites-count" aria-hidden="true">{favorites.length}</span>
+        <span className="header__favorites-count" aria-hidden="true">
+          {favorites.length}
+        </span>
       </button>
     </header>
   )

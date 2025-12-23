@@ -30,7 +30,7 @@ export function CharacterDetail() {
       ])
       setCharacter(characterResponse.results)
       setComics(comicsResponse.results)
-    } catch (err) {
+    } catch {
       setError('Error al cargar el personaje')
     } finally {
       setLoading(false)
@@ -48,11 +48,19 @@ export function CharacterDetail() {
   }
 
   if (loading) {
-    return <p className="loading" role="status">Cargando...</p>
+    return (
+      <p className="loading" role="status">
+        Cargando...
+      </p>
+    )
   }
 
   if (error || !character) {
-    return <p className="error" role="alert">{error || 'Personaje no encontrado'}</p>
+    return (
+      <p className="error" role="alert">
+        {error || 'Personaje no encontrado'}
+      </p>
+    )
   }
 
   const favorite = isFavorite(character.id)
@@ -67,33 +75,39 @@ export function CharacterDetail() {
             </div>
             <div className="character-detail__info">
               <div className="character-detail__header">
-                <h1 id="character-name" className="character-detail__name">{character.name}</h1>
+                <h1 id="character-name" className="character-detail__name">
+                  {character.name}
+                </h1>
                 <button
                   className="character-detail__favorite"
                   onClick={handleFavoriteClick}
-                  aria-label={favorite ? `Quitar ${character.name} de favoritos` : `Añadir ${character.name} a favoritos`}
+                  aria-label={
+                    favorite
+                      ? `Quitar ${character.name} de favoritos`
+                      : `Añadir ${character.name} a favoritos`
+                  }
                   aria-pressed={favorite}
                 >
                   <Favorite type={favorite ? 'fav' : 'nofav'} />
                 </button>
               </div>
-              {character.deck && (
-                <p className="character-detail__deck">{character.deck}</p>
-              )}
+              {character.deck && <p className="character-detail__deck">{character.deck}</p>}
             </div>
           </div>
         </section>
 
         {comics.length > 0 && (
           <section className="character-detail__comics" aria-labelledby="comics-title">
-            <h2 id="comics-title" className="character-detail__comics-title">Comics</h2>
+            <h2 id="comics-title" className="character-detail__comics-title">
+              Comics
+            </h2>
             <ul className="character-detail__comics-list" role="list">
-              {comics.map((comic) => (
+              {comics.map(comic => (
                 <li key={comic.id} className="comic-card">
-                  <img 
-                    className="comic-card__image" 
-                    src={comic.image.medium_url} 
-                    alt={`Portada de ${comic.name || `Issue #${comic.issue_number}`}`} 
+                  <img
+                    className="comic-card__image"
+                    src={comic.image.medium_url}
+                    alt={`Portada de ${comic.name || `Issue #${comic.issue_number}`}`}
                   />
                   <p className="comic-card__title">
                     {comic.name || `Issue #${comic.issue_number}`}

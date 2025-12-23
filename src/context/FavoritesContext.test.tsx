@@ -135,7 +135,7 @@ describe('FavoritesContext', () => {
 
   it('should throw error when useFavorites is used outside provider', () => {
     const consoleError = vi.spyOn(console, 'error').mockImplementation(() => {})
-    
+
     expect(() => render(<TestComponent />)).toThrow(
       'useFavorites must be used within a FavoritesProvider'
     )

@@ -7,11 +7,11 @@ interface FavoriteProps {
 export function Favorite({ type }: FavoriteProps) {
   if (type === 'fav') {
     return (
-      <svg 
-        className="favorite favorite--red" 
-        role="img" 
-        viewBox="0 0 24 22" 
-        fill="none" 
+      <svg
+        className="favorite favorite--red"
+        role="img"
+        viewBox="0 0 24 22"
+        fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
         <path d="M12 3.63869L6 -0.00292969L0 3.63869V11.4422L12 21.6734L24 11.4422V3.63869L18 -0.00292969L12 3.63869Z" />
@@ -21,10 +21,10 @@ export function Favorite({ type }: FavoriteProps) {
 
   if (type === 'nofav') {
     return (
-      <svg 
-        className="favorite favorite--ghost" 
-        role="img" 
-        viewBox="0 0 26 25" 
+      <svg
+        className="favorite favorite--ghost"
+        role="img"
+        viewBox="0 0 26 25"
         xmlns="http://www.w3.org/2000/svg"
       >
         <path d="M7 1.60474L7.51885 0.74987L7 0.434962L6.48115 0.749871L7 1.60474ZM13 5.24635L12.4812 6.10122L13 6.41613L13.5188 6.10122L13 5.24635ZM1 5.24635L0.481151 4.39149L0 4.68352V5.24635H1ZM1 13.0498H0V13.5113L0.351203 13.8108L1 13.0498ZM13 23.281L12.3512 24.042L13 24.5952L13.6488 24.042L13 23.281ZM25 13.0498L25.6488 13.8108L26 13.5113V13.0498H25ZM25 5.24635H26V4.68352L25.5188 4.39149L25 5.24635ZM19 1.60474L19.5189 0.749871L19 0.434962L18.4812 0.74987L19 1.60474ZM6.48115 2.4596L12.4812 6.10122L13.5188 4.39149L7.51885 0.74987L6.48115 2.4596ZM1.51885 6.10122L7.51885 2.4596L6.48115 0.749871L0.481151 4.39149L1.51885 6.10122ZM2 13.0498V5.24635H0V13.0498H2ZM13.6488 22.5201L1.6488 12.2889L0.351203 13.8108L12.3512 24.042L13.6488 22.5201ZM13.6488 24.042L25.6488 13.8108L24.3512 12.2889L12.3512 22.5201L13.6488 24.042ZM26 13.0498V5.24635H24V13.0498H26ZM25.5188 4.39149L19.5189 0.749871L18.4812 2.4596L24.4812 6.10122L25.5188 4.39149ZM18.4812 0.74987L12.4812 4.39149L13.5188 6.10122L19.5189 2.4596L18.4812 0.74987Z" />
@@ -33,11 +33,11 @@ export function Favorite({ type }: FavoriteProps) {
   }
 
   return (
-    <svg 
-      className="favorite favorite--white" 
-      role="img" 
-      viewBox="0 0 24 22" 
-      fill="none" 
+    <svg
+      className="favorite favorite--white"
+      role="img"
+      viewBox="0 0 24 22"
+      fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
       <path d="M12 3.63869L6 -0.00292969L0 3.63869V11.4422L12 21.6734L24 11.4422V3.63869L18 -0.00292969L12 3.63869Z" />
