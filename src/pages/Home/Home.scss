@@ -1,0 +1,35 @@
+.main {
+  padding: var(--spacing-md) var(--spacing-lg);
+}
+
+.results-count {
+  font-size: var(--font-size-sm);
+  color: var(--color-black);
+  margin-bottom: var(--spacing-md);
+}
+
+.characters-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-md);
+}
+
+.loading,
+.error,
+.empty {
+  text-align: center;
+  padding: var(--spacing-xl);
+  color: var(--color-gray);
+}
+
+@media (min-width: 768px) {
+  .characters-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .characters-grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
