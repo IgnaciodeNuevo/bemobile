@@ -1,5 +1,5 @@
 import { describe, it, expect, beforeEach, vi } from 'vitest'
-import { render, screen, act } from '@/tests/test-utils'
+import { render, screen } from '@/tests/test-utils'
 import { FavoritesProvider, useFavorites } from './FavoritesContext'
 import { Character } from '@/types'
 
