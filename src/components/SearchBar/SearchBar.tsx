@@ -16,16 +16,19 @@ export function SearchBar({ onSearch, placeholder = 'SEARCH A CHARACTER...' }: S
   }
 
   return (
-    <div className="search-bar">
-      <span className="search-bar__icon">🔍</span>
+    <search className="search-bar" role="search">
+      <span className="search-bar__icon" aria-hidden="true">🔍</span>
+      <label htmlFor="character-search" className="visually-hidden">
+        Buscar personaje
+      </label>
       <input
+        id="character-search"
         className="search-bar__input"
-        type="text"
+        type="search"
         value={query}
         onChange={handleChange}
         placeholder={placeholder}
-        aria-label="Buscar personaje"
       />
-    </div>
+    </search>
   )
 }
