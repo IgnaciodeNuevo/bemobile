@@ -6,23 +6,26 @@ import './Header.scss'
 
 interface HeaderProps {
   onFavoritesClick?: () => void
+  onLogoClick?: () => void
 }
 
-export function Header({ onFavoritesClick }: HeaderProps) {
+export function Header({ onFavoritesClick, onLogoClick }: HeaderProps) {
   const { favorites } = useFavorites()
 
   return (
-    <header className="header">
-      <Link to="/">
-        <Logo />
-      </Link>
+    <header className="header" role="banner">
+      <nav aria-label="Navegación principal">
+        <Link to="/" onClick={onLogoClick} aria-label="Ir a la página principal">
+          <Logo />
+        </Link>
+      </nav>
       <button
         className="header__favorites"
         onClick={onFavoritesClick}
-        aria-label={`Favoritos: ${favorites.length} personajes`}
+        aria-label={`Ver favoritos. ${favorites.length} personajes guardados`}
       >
         <Favorite type="fav" />
-        <span className="header__favorites-count">{favorites.length}</span>
+        <span className="header__favorites-count" aria-hidden="true">{favorites.length}</span>
       </button>
     </header>
   )
