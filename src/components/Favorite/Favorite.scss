@@ -1,6 +1,6 @@
 .favorite {
-  width: 24px;
-  height: 22px;
+  width: 12px;
+  height: 11px;
 
   &--red {
     fill: var(--color-primary);
@@ -8,7 +8,10 @@
 
   &--ghost {
     fill: none;
-    stroke: var(--color-primary);
+    
+    path {
+      fill: var(--color-primary);
+    }
   }
 
   &--white {
