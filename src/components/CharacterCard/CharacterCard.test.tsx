@@ -39,14 +39,14 @@ describe('CharacterCard', () => {
   it('should render character image', () => {
     renderCard()
 
-    const img = screen.getByAltText('Spider-Man')
+    const img = document.querySelector('.character-card__image img')
     expect(img).toHaveAttribute('src', 'http://image.url')
   })
 
   it('should link to character detail', () => {
     renderCard()
 
-    const link = screen.getByRole('link')
+    const link = screen.getByRole('link', { name: /ver detalles de spider-man/i })
     expect(link).toHaveAttribute('href', '/character/1')
   })
 
