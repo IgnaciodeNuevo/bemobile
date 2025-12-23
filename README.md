@@ -10,6 +10,22 @@ La aplicación permite:
 - Añadir/quitar personajes de favoritos (persistente en localStorage)
 - Ver el detalle de cada personaje con sus cómics asociados
 
+## ⚠️ Nota Importante sobre la API
+
+**Estado de la API de Marvel (Diciembre 2023):**
+
+La API original de Marvel parece estar **no disponible públicamente**:
+
+- **developer.marvel.com** - Redirige a marvel.com (portal cerrado)
+- **gateway.marvel.com/v1/** - Devuelve Internal Server Error
+- No hay información actual en Google sobre cómo acceder
+
+**Alternativas utilizadas en este proyecto:**
+
+Este proyecto utiliza la [**API de ComicVine**](https://comicvine.gamespot.com/api/) como alternativa funcional:
+
+> **Para futuros desarrolladores**: El código está estructurado de forma modular para facilitar el cambio de proveedor de API (solo necesitarías actualizar `src/services/api.ts`).
+
 ## Tecnologías
 
 - **React 18** con TypeScript
@@ -48,10 +64,17 @@ pnpm build
 # Preview del build
 pnpm preview
 
+# Linting y Formateo
+pnpm lint           # Verificar errores de linting
+pnpm lint:fix       # Corregir errores automáticamente
+pnpm format         # Formatear código con Prettier
+pnpm format:check   # Verificar formato sin modificar
+
 # Tests
-pnpm test        # Watch mode
-pnpm test:run    # Single run
-pnpm coverage    # Con cobertura
+pnpm test           # Watch mode
+pnpm test:run       # Single run
+pnpm test:coverage  # Con cobertura
+pnpm test:ui        # UI de tests
 ```
 
 ## Estructura del proyecto
