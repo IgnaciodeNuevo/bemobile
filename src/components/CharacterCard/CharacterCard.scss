@@ -1,5 +1,4 @@
 .character-card {
-  display: block;
   position: relative;
   background-color: var(--color-black);
   overflow: hidden;
@@ -15,6 +14,12 @@
     border-width: 0 0 12px 12px;
     border-color: transparent transparent var(--color-white) transparent;
     z-index: 1;
+  }
+
+  &__link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
   }
 
   &__image {
@@ -55,6 +60,7 @@
     text-transform: uppercase;
     z-index: 1;
     transition: color 0.25s ease;
+    margin: 0;
   }
 
   &__favorite {
@@ -64,9 +70,11 @@
     display: flex;
     align-items: center;
     z-index: 1;
+    cursor: pointer;
   }
 
-  &:hover {
+  &:hover,
+  &:focus-within {
     .character-card__info::before {
       height: 100%;
     }
