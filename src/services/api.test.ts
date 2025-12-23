@@ -6,7 +6,7 @@ const mockCharacter = {
   name: 'Spider-Man',
   real_name: 'Peter Parker',
   deck: 'Hero from New York',
-  description: 'Super hero that was nitten by a spider',
+  description: 'Bitten by a spider',
   image: { medium_url: 'http://image.url', original_url: 'http://image.url' },
   api_detail_url: 'http://api.url',
 }
@@ -46,7 +46,7 @@ describe('API Service', () => {
 
       expect(fetch).toHaveBeenCalledTimes(1)
       expect(fetch).toHaveBeenCalledWith(
-        expect.stringContaining('/api/characters?')
+        expect.stringContaining('/api/characters/?')
       )
       expect(result.results).toHaveLength(1)
       expect(result.results[0].name).toBe('Spider-Man')
@@ -90,7 +90,7 @@ describe('API Service', () => {
       const result = await searchCharacters('Spider')
 
       expect(fetch).toHaveBeenCalledWith(
-        expect.stringContaining('/api/search?')
+        expect.stringContaining('/api/search/?')
       )
       expect(fetch).toHaveBeenCalledWith(
         expect.stringMatching(/query=Spider/)
@@ -113,7 +113,7 @@ describe('API Service', () => {
       const result = await getCharacterById(1)
 
       expect(fetch).toHaveBeenCalledWith(
-        expect.stringContaining('/api/character/4005-1?')
+        expect.stringContaining('/api/character/4005-1/?')
       )
       expect(result.results.name).toBe('Spider-Man')
     })
@@ -130,7 +130,7 @@ describe('API Service', () => {
       const result = await getCharacterComics(1)
 
       expect(fetch).toHaveBeenCalledWith(
-        expect.stringContaining('/api/issues?')
+        expect.stringContaining('/api/issues/?')
       )
       expect(fetch).toHaveBeenCalledWith(
         expect.stringMatching(/filter=character%3A1/)
