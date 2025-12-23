@@ -1,76 +1,43 @@
-import { useState, useEffect } from 'react'
-import { BrowserRouter } from 'react-router-dom'
+import { useState } from 'react'
+import { BrowserRouter, Routes, Route, useNavigate } from 'react-router-dom'
 import { FavoritesProvider } from '@/context/index'
 import { Header } from '@/components/Header/index'
-import { SearchBar } from '@/components/SearchBar/index'
-import { CharacterCard } from '@/components/CharacterCard/index'
-import { getCharacters, searchCharacters } from '@/services/index'
-import { Character } from '@/types/index'
+import { Home } from '@/pages/Home/index'
+import { CharacterDetail } from '@/pages/CharacterDetail/index'
 import './App.css'
 
-function App() {
-  const [characters, setCharacters] = useState<Character[]>([])
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState<string | null>(null)
-
-  useEffect(() => {
-    loadCharacters()
-  }, [])
-
-  const loadCharacters = async () => {
-    try {
-      setLoading(true)
-      setError(null)
-      const response = await getCharacters(50)
-      setCharacters(response.results)
-    } catch (err) {
-      setError('Error al cargar los personajes')
-    } finally {
-      setLoading(false)
-    }
-  }
+function AppContent() {
+  const [showFavorites, setShowFavorites] = useState(false)
+  const navigate = useNavigate()
 
   const handleFavoritesClick = () => {
-    console.log('Favorites clicked')
+    setShowFavorites(!showFavorites)
+    navigate('/')
   }
 
-  const handleSearch = async (query: string) => {
-    if (!query.trim()) {
-      loadCharacters()
-      return
-    }
-
-    try {
-      setLoading(true)
-      setError(null)
-      const response = await searchCharacters(query)
-      setCharacters(response.results)
-    } catch (err) {
-      setError('Error al buscar personajes')
-    } finally {
-      setLoading(false)
-    }
+  const handleLogoClick = () => {
+    setShowFavorites(false)
   }
 
   return (
+    <div className="app">
+      <Header 
+        onFavoritesClick={handleFavoritesClick} 
+        onLogoClick={handleLogoClick}
+      />
+      <Routes>
+        <Route path="/" element={<Home showFavorites={showFavorites} />} />
+        <Route path="/character/:id" element={<CharacterDetail />} />
+      </Routes>
+    </div>
+  )
+}
+
+function App() {
+  return (
     <BrowserRouter>
       <FavoritesProvider>
-        <div className="app">
-          <Header onFavoritesClick={handleFavoritesClick} />
-          <SearchBar onSearch={handleSearch} />
-          <main className="main">
-            <p className="results-count">{characters.length} RESULTS</p>
-            {loading && <p>Cargando...</p>}
-            {error && <p>{error}</p>}
-            {!loading && !error && (
-              <div className="characters-grid">
-                {characters.map((character) => (
-                  <CharacterCard key={character.id} character={character} />
-                ))}
-              </div>
-            )}
-          </main>
-        </div>
+        <AppContent />
       </FavoritesProvider>
     </BrowserRouter>
   )
