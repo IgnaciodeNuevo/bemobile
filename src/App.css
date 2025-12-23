@@ -3,19 +3,17 @@
   --color-black: #000000;
   --color-white: #ffffff;
   --color-gray: #999999;
-
-  --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-
+  --font-family: 'Roboto Condensed', sans-serif;
   --spacing-xs: 0.25rem;
   --spacing-sm: 0.5rem;
   --spacing-md: 1rem;
   --spacing-lg: 1.5rem;
   --spacing-xl: 2rem;
-
   --font-size-sm: 0.875rem;
   --font-size-md: 1rem;
   --font-size-lg: 1.25rem;
   --font-size-xl: 1.5rem;
+  --max-width: 962px;
 }
 
 *,
@@ -32,6 +30,7 @@ html {
 
 body {
   font-family: var(--font-family);
+  font-weight: 400;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
 }
@@ -61,30 +60,14 @@ ol {
   list-style: none;
 }
 
-.main {
-  padding: var(--spacing-md) var(--spacing-lg);
-}
-
-.results-count {
-  font-size: var(--font-size-sm);
-  color: var(--color-black);
-  margin-bottom: var(--spacing-md);
-}
-
-.characters-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: var(--spacing-md);
-}
-
-@media (min-width: 768px) {
-  .characters-grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
-
-@media (min-width: 1024px) {
-  .characters-grid {
-    grid-template-columns: repeat(5, 1fr);
-  }
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
