@@ -1,73 +1,120 @@
-# React + TypeScript + Vite for BeMobile
+# BeMobile - Marvel Characters
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicación web para explorar personajes de cómics utilizando la API de ComicVine.
 
-Currently, two official plugins are available:
+## Demo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+La aplicación permite:
+- Ver un listado de 50 personajes de cómics
+- Buscar personajes por nombre
+- Añadir/quitar personajes de favoritos (persistente en localStorage)
+- Ver el detalle de cada personaje con sus cómics asociados
 
-## React Compiler
+## Tecnologías
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **React 18** con TypeScript
+- **Vite** como bundler
+- **React Router** para navegación
+- **SASS** para estilos
+- **Vitest** + React Testing Library para tests
+- **Context API** para gestión de estado
 
-## Expanding the ESLint configuration
+## Requisitos
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- Node.js >= 18
+- pnpm (recomendado) o npm
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Instalación
+```bash
+# Clonar el repositorio
+git clone <url-del-repositorio>
+cd bemobile
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+# Instalar dependencias
+pnpm install
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+# Configurar variables de entorno
+cp .env.example .env
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Scripts disponibles
+```bash
+# Desarrollo
+pnpm dev
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+# Build de producción
+pnpm build
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+# Preview del build
+pnpm preview
+
+# Tests
+pnpm test        # Watch mode
+pnpm test:run    # Single run
+pnpm coverage    # Con cobertura
 ```
+
+## Estructura del proyecto
+```
+src/
+├── components/        # Componentes reutilizables
+│   ├── CharacterCard/
+│   ├── Favorite/
+│   ├── Header/
+│   ├── Logo/
+│   └── SearchBar/
+├── context/           # Context API (Favoritos)
+├── pages/             # Páginas/Vistas
+│   ├── Home/
+│   └── CharacterDetail/
+├── services/          # Llamadas a la API
+├── types/             # Tipos TypeScript
+├── tests/             # Configuración de tests
+└── App.tsx            # Componente raíz
+```
+
+## Tests
+
+El proyecto incluye tests unitarios para:
+- Componentes (Header, SearchBar, CharacterCard, etc.)
+- Context (FavoritesContext)
+- Servicios (API)
+- Páginas (Home, CharacterDetail)
+```bash
+# Ejecutar todos los tests
+pnpm test:run
+
+# Ver cobertura
+pnpm coverage
+```
+
+## Características
+
+### Accesibilidad
+- Etiquetas ARIA para lectores de pantalla
+- Navegación por teclado
+- Labels descriptivos en botones e inputs
+- Roles semánticos (banner, main, search, etc.)
+
+### Responsive
+- Grid fluido con CSS Grid (`auto-fill` + `minmax`)
+- Adaptación automática de columnas según el ancho
+- Diseño mobile-first
+
+### Favoritos
+- Persistencia en localStorage
+- Contador en tiempo real en el header
+- Toggle desde la card o el detalle del personaje
+
+## API
+
+La aplicación utiliza la [API de ComicVine](https://comicvine.gamespot.com/api/). En desarrollo, las peticiones se proxean a través de Vite para evitar problemas de CORS.
+
+## Autor
+
+Desarrollado como prueba técnica para BeMobile.
+```
+
+Crea también `.env.example`:
+```
+VITE_API_KEY=tu_api_key_aqui
